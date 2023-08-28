@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.use('/images',express.static('/images'));
-
+app.use('/videos',express.static('/videos'));
 app.use('/',router);
 
 app.listen(port,() =>{
