@@ -17,7 +17,6 @@ const BannerSection = () => {
         try {
           const response = await axios.get(`http://localhost:7373/template/${templateId}`);
           setTemplate(response.data.data);
-          console.log(response);
         } catch (error) {
           toast.error('Error fetching profile:', error.message);
         }
@@ -25,28 +24,79 @@ const BannerSection = () => {
       getBanner();
     }
   }, []);
-  return (
-    <section className="banner" style={{
-      backgroundImage: `url(${template.banner})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      width: "100%",
-      borderRadius: "0px 0px 40px 40px"
-    }}>
-      <div className="container">
-        <div className="row pt-5">
-          <div className="col-md-5 leftcolumn">
-            <h3>{template.header}</h3>
-            <p>{template.description}</p>
-            <button className="btn">{template.button}</button>
-          </div>
-          <div className="col-md-7">
-            <img src={template.mainImage} alt="Main" className="mainImage" />
+  if (template && template.templateId === 800352) {
+    return (
+      <section className="banner" style={{
+        backgroundImage: `url(${template.banner})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100%",
+        borderRadius: "0px 0px 40px 40px"
+      }}>
+        <div className="container">
+          <div className="row pt-5">
+            <div className="col-md-5 leftcolumn">
+              <h3>{template.header}</h3>
+              <p>{template.description}</p>
+              <button className="btn">{template.button}</button>
+            </div>
+            <div className="col-md-7">
+              <img src={template.mainImage} alt="Main" className="mainImage" />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  } else if (template && template.templateId === 559427) {
+    return (
+      <section className="banner2" style={{
+        backgroundImage: `url(${template.banner})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100%",
+        borderRadius: "0px 0px 40px 40px",
+        position: 'relative'
+      }}>
+        <div className="container">
+          <div className="row pt-5">
+            <div className="col-md-7">
+              <img src={template.mainImage} alt="Main" className="mainImage" />
+            </div>
+            <div className="col-md-5 leftcolumn">
+              <h3>{template.header}</h3>
+              <p>{template.description}</p>
+              <button className="btn">{template.button}</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  } else if (template && template.templateId === 503908) {
+    return (
+      <section className="banner3" style={{
+        backgroundImage: `url(${template.banner})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: "100%",
+        height: "700px",
+        borderRadius: "0px 0px 40px 40px"
+      }}>
+        <div className="container">
+          <div className="row pt-5">
+            <div className="col-md-12 text-center leftcolumn">
+              <h3>{template.header}</h3>
+              <p>{template.description}</p>
+              <button className="btn">{template.button}</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 };
 
 const ProductSection = () => {
@@ -60,7 +110,6 @@ const ProductSection = () => {
         try {
           const response = await axios.get(`http://localhost:7373/template/${templateId}`);
           setTemplate(response.data.data);
-          console.log(response);
         } catch (error) {
           toast.error('Error fetching profile:', error.message);
         }
@@ -112,6 +161,7 @@ function App() {
         breakpoint: 480,
         settings: {
           autoplay: true,
+          arrows: false,
           dots: true,
           infinite: true,
           speed: 300,
@@ -123,6 +173,7 @@ function App() {
         breakpoint: 240,
         settings: {
           autoplay: true,
+          arrows: false,
           dots: true,
           infinite: true,
           speed: 300,

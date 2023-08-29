@@ -1,6 +1,5 @@
 const db = require('../models/index');
 const { Sequelize, Op } = require('sequelize');
-const path = require('path');
 const Template = db.template;
 
 
@@ -33,7 +32,6 @@ const productSet = async (req, res) => {
         })
         return res.json({ message: "updated" })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ message: 'Internal Server Error', error });
     }
 }
@@ -49,6 +47,7 @@ const getBanner = async (req, res) => {
         const template = templates[0];
         return res.status(200).json({
             data: {
+                templateId: template.templateId,
                 header: template.header,
                 description: template.description,
                 button: template.button,
@@ -58,7 +57,6 @@ const getBanner = async (req, res) => {
             }
         });
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ message: 'Internal Server Error', error });
     }
 }
