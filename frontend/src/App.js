@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import './App.css';
 import axios from 'axios';
 
-const BannerSection = ({templateId=934190}) => {
+const BannerSection = ({templateId=559427}) => {
     const [template,setTemplate] = useState('');
     useEffect(() => {
       const getBanner = async() =>{
@@ -19,7 +19,13 @@ const BannerSection = ({templateId=934190}) => {
       getBanner();
     },[templateId])
   return (
-    <section className="banner">
+    <section className="banner" style={{
+      backgroundImage: `url(${template.banner})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      width: "100%",
+      borderRadius: "0px 0px 40px 40px"
+    }}>
       <div className="container">
         <div className="row pt-5">
           <div className="col-md-5 leftcolumn">
@@ -33,19 +39,46 @@ const BannerSection = ({templateId=934190}) => {
         </div>
       </div>
     </section>
-  );
+  )
 };
 
-const ProductSection = () => {
+const ProductSection = ({templateId=559427}) => {
+  const [template,setTemplate] = useState('');
+  useEffect(() => {
+    const getBanner = async() =>{
+      try {
+        const response = await axios.get(`http://localhost:7373/template/${templateId}`)
+        setTemplate(response.data.data);
+        console.log(response);
+      } catch (error) {
+        toast.error('Error fetching profile:', error.message);
+      }
+    };
+    getBanner();
+  },[templateId])
   return (
     <section className="product">
       <div className="container m-5">
         <h1>Products</h1>
         <div className="row">
           <div className="col-lg-4 col-md-6">
-            <video src="1_KMS.mp4" type="video/mp.4" autoPlay loop muted />
+            <video src={template.product} autoPlay loop muted />
           </div>
-          {/* Repeat similar structure for other product videos */}
+          <div className="col-lg-4 col-md-6">
+            <video src={template.product} autoPlay loop muted />
+          </div>
+          <div className="col-lg-4 col-md-6">
+            <video src={template.product} autoPlay loop muted />
+          </div>
+          <div className="col-lg-4 col-md-6">
+            <video src={template.product} autoPlay loop muted />
+          </div>
+          <div className="col-lg-4 col-md-6">
+            <video src={template.product} autoPlay loop muted />
+          </div>
+          <div className="col-lg-4 col-md-6">
+            <video src={template.product} autoPlay loop muted />
+          </div>
         </div>
       </div>
     </section>

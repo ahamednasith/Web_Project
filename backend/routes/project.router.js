@@ -16,13 +16,13 @@ const storage = multer.diskStorage({
         }
     },
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + '_' + Date.now() + path.extname(file.originalname));
+        cb(null, file.fieldname + '' + Date.now() + path.extname(file.originalname));
     }
 });
 const imgUpload = multer({ storage: storage }).array('images');
 const vidUpload = multer({ storage: storage }).array('videos');
 
-router.post('/banner', imgUpload,vidUpload, projectController.bannerSet);
+router.post('/banner', imgUpload, projectController.bannerSet);
 router.put('/product',vidUpload,projectController.productSet);
 router.get('/template/:templateId',projectController.getBanner)
 

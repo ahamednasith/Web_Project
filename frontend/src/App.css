@@ -7,14 +7,6 @@
     font-family: "sf pro display", sans-serif;
 }
 
-.banner {
-    background-image: url("https://d1whtbopipnjq0.cloudfront.net/shopTemplate/bgImg_1692416221876.png");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    border-radius: 0px 0px 40px 40px;
-}
-
 .banner .mainImage {
     width: 100%;
 }

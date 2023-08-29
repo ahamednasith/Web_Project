@@ -8,11 +8,10 @@ const bannerSet = async (req, res) => {
     try {
         const templateId = Math.floor(100000 + Math.random() * 900000);
         const { header, description, button } = req.body;
-        const banner =req.files[0].path;
-        const mainImage = req.files[1].path;
-        const product = req.files[2].map(file=>file.path);
+        const banner =`http://localhost:7373/images/${req.files[0].filename}`;
+        const mainImage = `http://localhost:7373/images/${req.files[1].filename}`;
         const template = await Template.create({
-            templateId, header, description, button, banner,mainImage,product
+            templateId, header, description, button, banner,mainImage
         });
 
         return res.status(200).json({ message: 'Inserted' });
@@ -23,8 +22,8 @@ const bannerSet = async (req, res) => {
 
 const productSet = async (req,res) => {
     try {
-        const templateId = req.body.templateId;
-        const product = req.files.map(file=>file.path);
+        const templateId =req.body.templateId;
+        const product = `http://localhost:7373/videos/${req.files.map(file=>file.filename)}`;
         const template = await Template.update({
             product
         },{where:{
