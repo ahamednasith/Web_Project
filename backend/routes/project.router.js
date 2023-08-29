@@ -24,5 +24,6 @@ const vidUpload = multer({ storage: storage }).array('videos');
 
 router.post('/banner', imgUpload,vidUpload, projectController.bannerSet);
 router.put('/product',vidUpload,projectController.productSet);
+router.get('/template/:templateId',projectController.getBanner)
 
 module.exports = router;

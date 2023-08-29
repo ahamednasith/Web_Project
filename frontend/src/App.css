@@ -1,0 +1,229 @@
+@import url('https://v1.fontapi.ir/css/SFProDisplay');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "sf pro display", sans-serif;
+}
+
+.banner {
+    background-image: url("https://d1whtbopipnjq0.cloudfront.net/shopTemplate/bgImg_1692416221876.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    border-radius: 0px 0px 40px 40px;
+}
+
+.banner .mainImage {
+    width: 100%;
+}
+
+.banner h3 {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 68px;
+    text-transform: capitalize;
+    color: #002A48;
+}
+
+.banner p {
+    padding-top: 18px;
+    padding-bottom: 34px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
+
+.banner .btn {
+    background-color: #003459;
+    border-color: #003459;
+    color: #FDFDFD;
+    border-radius: 80px;
+    display: flex;
+    width: 163px;
+    height: 52px;
+    padding: 14px 28px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+@media(max-width:1400px) {
+    .banner .mainImage {
+        width: 70%
+    }
+}
+
+@media(max-width:1199px) {
+    .banner p {
+        padding-top: 14px;
+        padding-bottom: 30px;
+    }
+}
+
+@media(max-width:346px) {
+    .banner .mainImage {
+        padding-top: 10px;
+    }
+}
+
+@media(max-width:991px) {
+    .banner p {
+        padding-top: 5px;
+        padding-bottom: 25px;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner {
+        background-position: right;
+    }
+
+    .banner .mainImage {
+        width: 90%;
+    }
+}
+
+@media (max-width: 991px) {
+    .banner .mainImage {
+        width: 90%;
+    }
+}
+
+@media (max-width:1199px) {
+    .banner h3 {
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 68px;
+        text-transform: capitalize;
+        color: #002A48;
+    }
+}
+
+@media (max-width:991px) {
+    .banner h3 {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 68px;
+        text-transform: capitalize;
+        color: #002A48;
+    }
+}
+
+@media (max-width: 500px) {
+    .banner .mainImage {
+        width: 100%;
+    }
+}
+
+.banner button:hover {
+    background-color: white;
+    border-color: #003459;
+    color: #002A48;
+    border-radius: 80px;
+    display: flex;
+    width: 163px;
+    padding: 14px 28px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.banner .leftcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.slick-prev {
+    position: absolute;
+    top: 50%;
+    left:10px;
+    outline: none;
+    border: none;
+    width: 50px;
+    height: 40px;
+    border-radius: 30px;
+    background: #002A48;
+    color: white;
+    z-index: 99;
+}
+
+.slick-next {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    outline: none;
+    border: none;
+    width: 50px;
+    height: 40px;
+    border-radius: 30px;
+    background: #002A48;
+    color: white;
+    z-index: 99;
+}
+
+.slick-slider .slick-prev {
+    font-size: 0;
+}
+
+.slick-slider .slick-prev::before {
+    content: '<';
+    line-height: 1;
+    font-size: 20px;
+}
+
+.slick-slider .slick-next {
+    font-size: 0;
+}
+
+.slick-slider .slick-next::after {
+    content: '>';
+    line-height: 1;
+    font-size: 20px;
+}
+
+.slick-dots {
+    text-align: center;
+    bottom: 0%;
+}
+
+.slick-dots li {
+    display: inline-block;
+    padding: 1px;
+    background-color: #ccc;
+    margin: 10px 5px;
+    width: 40px;
+    height: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.slick-dots button {
+    display: none;
+}
+
+.slick-dots li.slick-active {
+    background: #002A48;
+}
+.product{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    text-align:center;
+}
+.product h1{
+    color:#000;
+    font-size:30px;
+    font-weight:600;
+    line-height:24px;
+}
+.product video{
+    width: 264px;
+    height: 384px;
+    border-radius:20px;
+    padding-top:50px;
+
+}
