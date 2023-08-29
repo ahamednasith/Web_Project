@@ -1,28 +1,28 @@
-module.exports = (sequelize,DataTypes) => {
-    const Template = sequelize.define('template',{
-        templateId:{
+module.exports = (sequelize, DataTypes) => {
+    const Template = sequelize.define('template', {
+        templateId: {
             type: DataTypes.INTEGER
         },
-        header:{
-            type:DataTypes.STRING
+        header: {
+            type: DataTypes.STRING
         },
-        description:{
-            type:DataTypes.STRING(1000)
+        description: {
+            type: DataTypes.STRING(1000)
         },
-        button:{
-            type:DataTypes.STRING
+        button: {
+            type: DataTypes.STRING
         },
-        banner:{
-            type:DataTypes.STRING
+        banner: {
+            type: DataTypes.STRING
         },
-        mainImage:{
-            type:DataTypes.STRING
+        mainImage: {
+            type: DataTypes.STRING
         },
-        product:{
-            type:DataTypes.JSON
+        product: {
+            type: DataTypes.JSON
         }
-    },{
-        timestamps:false
+    }, {
+        timestamps: false
     });
     return Template;
 }

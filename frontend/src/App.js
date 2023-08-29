@@ -1,15 +1,21 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './App.css';
 import axios from 'axios';
 
-const BannerSection = ({templateId=559427}) => {
-    const [template,setTemplate] = useState('');
-    useEffect(() => {
-      const getBanner = async() =>{
+const BannerSection = () => {
+  const [template, setTemplate] = useState('');
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const templateId = searchParams.get('templateId');
+
+    if (templateId) {
+      const getBanner = async () => {
         try {
-          const response = await axios.get(`http://localhost:7373/template/${templateId}`)
+          const response = await axios.get(`http://localhost:7373/template/${templateId}`);
           setTemplate(response.data.data);
           console.log(response);
         } catch (error) {
@@ -17,7 +23,8 @@ const BannerSection = ({templateId=559427}) => {
         }
       };
       getBanner();
-    },[templateId])
+    }
+  }, []);
   return (
     <section className="banner" style={{
       backgroundImage: `url(${template.banner})`,
@@ -42,43 +49,37 @@ const BannerSection = ({templateId=559427}) => {
   )
 };
 
-const ProductSection = ({templateId=559427}) => {
-  const [template,setTemplate] = useState('');
+const ProductSection = () => {
+  const [template, setTemplate] = useState('');
   useEffect(() => {
-    const getBanner = async() =>{
-      try {
-        const response = await axios.get(`http://localhost:7373/template/${templateId}`)
-        setTemplate(response.data.data);
-        console.log(response);
-      } catch (error) {
-        toast.error('Error fetching profile:', error.message);
-      }
-    };
-    getBanner();
-  },[templateId])
+    const searchParams = new URLSearchParams(window.location.search);
+    const templateId = searchParams.get('templateId');
+
+    if (templateId) {
+      const getBanner = async () => {
+        try {
+          const response = await axios.get(`http://localhost:7373/template/${templateId}`);
+          setTemplate(response.data.data);
+          console.log(response);
+        } catch (error) {
+          toast.error('Error fetching profile:', error.message);
+        }
+      };
+      getBanner();
+    }
+  }, []);
+
   return (
     <section className="product">
       <div className="container m-5">
         <h1>Products</h1>
         <div className="row">
-          <div className="col-lg-4 col-md-6">
-            <video src={template.product} autoPlay loop muted />
-          </div>
-          <div className="col-lg-4 col-md-6">
-            <video src={template.product} autoPlay loop muted />
-          </div>
-          <div className="col-lg-4 col-md-6">
-            <video src={template.product} autoPlay loop muted />
-          </div>
-          <div className="col-lg-4 col-md-6">
-            <video src={template.product} autoPlay loop muted />
-          </div>
-          <div className="col-lg-4 col-md-6">
-            <video src={template.product} autoPlay loop muted />
-          </div>
-          <div className="col-lg-4 col-md-6">
-            <video src={template.product} autoPlay loop muted />
-          </div>
+          {template &&
+            template.product.map((productSrc, index) => (
+              <div key={index} className="col-lg-4 col-md-6">
+                <video src={productSrc} autoPlay loop muted />
+              </div>
+            ))}
         </div>
       </div>
     </section>
@@ -88,7 +89,7 @@ const ProductSection = ({templateId=559427}) => {
 
 function App() {
   const sliderSettings = {
-    autoplay: true,
+
     dots: true,
     infinite: true,
     speed: 300,
@@ -96,13 +97,46 @@ function App() {
     prevArrow: <button type="button" className="slick-prev">Previous</button>,
     nextArrow: <button type="button" className="slick-next">Next</button>,
     responsive: [
-      // Responsive settings here
+      {
+        breakpoint: 768,
+        settings: {
+          autoplay: true,
+          dots: true,
+          infinite: true,
+          speed: 300,
+          arrows: true,
+          slidesToShow: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          autoplay: true,
+          dots: true,
+          infinite: true,
+          speed: 300,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      },
+      {
+        breakpoint: 240,
+        settings: {
+          autoplay: true,
+          dots: true,
+          infinite: true,
+          speed: 300,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
     ],
   };
 
   return (
     <div className="App">
       <Slider {...sliderSettings}>
+        <BannerSection />
         <BannerSection />
       </Slider>
       <ProductSection />

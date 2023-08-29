@@ -20,10 +20,10 @@ const storage = multer.diskStorage({
     }
 });
 const imgUpload = multer({ storage: storage }).array('images');
-const vidUpload = multer({ storage: storage }).array('videos');
+const vidUpload = multer({ storage: storage }).array('videos', 6);
 
 router.post('/banner', imgUpload, projectController.bannerSet);
-router.put('/product',vidUpload,projectController.productSet);
-router.get('/template/:templateId',projectController.getBanner)
+router.put('/product', vidUpload, projectController.productSet);
+router.get('/template/:templateId', projectController.getBanner)
 
 module.exports = router;

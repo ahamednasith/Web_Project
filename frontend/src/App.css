@@ -128,94 +128,54 @@
     flex-direction: column;
     justify-content: center;
 }
-.slick-prev {
+
+.slick-arrow.slick-prev {
     position: absolute;
     top: 50%;
-    left:10px;
+    left: 10px;
+    display: flex;
     outline: none;
     border: none;
-    width: 50px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 30px;
-    background: #002A48;
-    color: white;
+    background-color: #003459;
+    color: #ccc;
     z-index: 99;
 }
 
-.slick-next {
+.slick-arrow.slick-next {
     position: absolute;
     top: 50%;
     right: 10px;
     outline: none;
     border: none;
-    width: 50px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 30px;
-    background: #002A48;
-    color: white;
+    background-color: #003459;
+    color: #ccc;
     z-index: 99;
 }
 
-.slick-slider .slick-prev {
-    font-size: 0;
-}
-
-.slick-slider .slick-prev::before {
-    content: '<';
-    line-height: 1;
-    font-size: 20px;
-}
-
-.slick-slider .slick-next {
-    font-size: 0;
-}
-
-.slick-slider .slick-next::after {
-    content: '>';
-    line-height: 1;
-    font-size: 20px;
-}
-
-.slick-dots {
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     text-align: center;
-    bottom: 0%;
 }
 
-.slick-dots li {
-    display: inline-block;
-    padding: 1px;
-    background-color: #ccc;
-    margin: 10px 5px;
-    width: 40px;
-    height: 5px;
-    border-radius: 10px;
-    cursor: pointer;
+.product h1 {
+    color: #000;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 24px;
 }
 
-.slick-dots button {
-    display: none;
-}
-
-.slick-dots li.slick-active {
-    background: #002A48;
-}
-.product{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    text-align:center;
-}
-.product h1{
-    color:#000;
-    font-size:30px;
-    font-weight:600;
-    line-height:24px;
-}
-.product video{
+.product video {
     width: 264px;
     height: 384px;
-    border-radius:20px;
-    padding-top:50px;
-
+    border-radius: 20px;
+    padding-top: 50px;
 }
