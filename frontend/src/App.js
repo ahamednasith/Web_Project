@@ -89,7 +89,7 @@ const ProductSection = () => {
 
 function App() {
   const sliderSettings = {
-
+    autoplay: true,
     dots: true,
     infinite: true,
     speed: 300,
